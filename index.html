@@ -1,417 +1,398 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>勝龍工業 | 解体・とび・塗装</title>
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
-      background:#050505;
-      color:#fff;
-      overflow-x:hidden;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .page{
-      width:100%;
-      min-height:100vh;
-      background:#050505;
-      overflow-x:hidden;
-    }
-
-    .hero{
-      background:
-        linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,0)),
-        url("assets/bg.png");
-
-      background-size:cover;
-      background-position:center top;
-      background-repeat:no-repeat;
-
-      padding:24px 42px 0;
-      min-height:350px;
-    }
-
-    .hero-inner{
-      margin:auto;
-    }
-
-    .header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      overflow:hidden;
-      gap:35px;
-    }
-
-    .brand-label{
-      font-size:18px;
-      font-weight:700;
-      margin-bottom:6px;
-      letter-spacing:.05em;
-    }
-
-    .logo-img{
-      width:750px;
-      max-width:100%;
-      display:block;
-      margin-top:-150px;
-      margin-left:-80px;
-      margin-bottom:-170px;
-      filter:drop-shadow(0 0 14px rgba(242,211,107,.22));
-    }
-
-    .brand-en{
-      margin-top:-200px;
-      padding-left:170px;
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.42em;
-    }
-
-    .contact{
-      text-align:right;
-      min-width:300px;
-    }
-
-    .contact-label{
-      font-size:12px;
-      font-weight:700;
-      margin-bottom:3px;
-    }
-
-    .tel{
-      display:block;
-      color:#f2d36b;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:clamp(24px,3vw,40px);
-      font-weight:900;
-      line-height:1.2;
-    }
-
-    .fax{
-      font-size:16px;
-      font-weight:700;
-    }
-
-    .copy{
-      margin-top:0px;
-      max-width:650px;
-    }
-
-    .copy h1{
-      font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
-      /* ここだけを変更してください */
-      font-size:30px;
-      line-height:1.35;
-      margin-bottom:5px;
-      letter-spacing:.04em;
-    }
-
-    .services{
-      max-width:1750px;
-      margin:0px auto 0;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      border:1px solid rgba(242,211,107,.28);
-      background:rgba(0,0,0,.72);
-      backdrop-filter:blur(2px);
-    }
-
-    .service-card{
-      min-height:150px;
-      padding:26px 34px;
-      display:flex;
-      align-items:center;
-      gap:24px;
-      border-right:1px solid rgba(255,255,255,.15);
-    }
-
-    .service-card:last-child{
-      border-right:none;
-    }
-
-    .service-card img{
-      width:120px;
-      min-width:120px;
-      height:120px;
-      object-fit:contain;
-      filter:drop-shadow(0 0 8px rgba(242,211,107,.2));
-    }
-
-    .service-card h2{
-      color:#f2d36b;
-      font-size:23px;
-      margin-bottom:6px;
-      line-height:1.25;
-      font-weight:900;
-    }
-
-    .service-card p{
-      font-size:13px;
-      font-weight:700;
-      line-height:1.65;
-    }
-
-    .info{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      background:linear-gradient(180deg,#151515,#080808);
-    }
-
-    .info-card{
-      min-height:140px;
-      padding:28px 42px;
-      display:flex;
-      gap:22px;
-      border-right:1px solid rgba(255,255,255,.15);
-    }
-
-    .info-card:last-child{
-      border-right:none;
-    }
-
-    .info-card i{
-      color:#f2d36b;
-      font-size:34px;
-      min-width:38px;
-      padding-top:3px;
-    }
-
-    .info-card h3{
-      color:#f2d36b;
-      font-size:19px;
-      margin-bottom:8px;
-    }
-
-    .info-card p{
-      font-size:13px;
-      line-height:1.75;
-      font-weight:700;
-    }
-
-    .company-table{
-      border-collapse:collapse;
-      font-size:13px;
-      font-weight:700;
-      line-height:1.65;
-    }
-
-    .company-table th{
-      width:68px;
-      text-align:left;
-      vertical-align:top;
-      padding:1px 0;
-    }
-
-    .company-table td{
-      padding:1px 0;
-    }
-
-    .sns-card{
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .phone-icon{
-      width:42px;
-      height:72px;
-      border:5px solid #f2d36b;
-      border-radius:5px;
-      position:relative;
-      min-width:42px;
-    }
-
-    .phone-icon::after{
-      content:"";
-      position:absolute;
-      left:50%;
-      bottom:6px;
-      transform:translateX(-50%);
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:#f2d36b;
-    }
-
-    footer{
-      text-align:center;
-      color:rgba(255,255,255,.45);
-      font-size:11px;
-      padding:9px;
-    }
-
-    @media(max-width:1000px){
-      .hero{
-        padding:24px 22px 0;
-        padding-bottom:0;
-        min-height:auto;
-        background-position:center top;
-      }
-
-      .header{
-        flex-direction:column;
-        gap:20px;
-      }
-
-      .contact{
-        text-align:left;
-        min-width:auto;
-      }
-
-      .brand-en{
-        padding-left:20px;
-        letter-spacing:.45em;
-      }
-
-      .copy{
-        margin-top:42px;
-      }
-
-      .services,
-      .info{
-        grid-template-columns:1fr;
-      }
-
-      .service-card,
-      .info-card{
-        border-right:none;
-        border-bottom:1px solid rgba(255,255,255,.15);
-      }
-
-      .service-card:last-child,
-      .info-card:last-child{
-        border-bottom:none;
-      }
-    }
-
-    @media(max-width:560px){
-      .hero{
-        padding:20px 18px 0;
-        background-size:cover;
-        background-position:center top;
-      }
-
-      .brand-label{
-        font-size:13px;
-        line-height:1.5;
-      }
-
-      .logo-img{
-        width:760px;
-        padding-left:10px;
-        margin:0;
-        transform:translate(-80px, -70px);
-      }
-
-      .brand-en{
-        margin-top:-172px;
-        padding-left:38px;
-        letter-spacing:.28em;
-        font-size:10px;
-      }
-
-      .tel{
-        font-size:25px;
-      }
-
-      .fax{
-        font-size:15px;
-      }
-
-      .copy{
-        margin-top:20px;
-      }
-
-      .services{
-        margin-top:45px;
-      }
-
-      .service-card{
-        padding:22px 18px;
-        gap:18px;
-      }
-
-      .service-card img{
-        width:72px;
-        min-width:72px;
-        height:72px;
-      }
-
-      .service-card h2{
-        font-size:20px;
-      }
-
-      .service-card p{
-        font-size:12px;
-      }
-
-      .info-card{
-        padding:24px 18px;
-      }
-
-      .info-card i{
-        font-size:30px;
-        min-width:32px;
-      }
-
-      .info-card h3{
-        font-size:20px;
-      }
-
-      .info-card p,
-      .company-table{
-        font-size:12px;
-      }
-
-      .sns-card{
-        align-items:flex-start;
-      }
-
-      .phone-icon{
-        width:36px;
-        height:64px;
-        min-width:36px;
-        border-width:4px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>勝龍工業 | 解体・とび・塗装</title>
+<meta name="description" content="静岡県磐田市の勝龍工業。解体工事、とび・足場工事、塗装工事を安全第一でご提供します。">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none;}
+
+.page{
+  width:100%;
+  min-height:100vh;
+  background:#000;
+}
+
+.site-wrap{
+  width:100%;
+  max-width:1920px;
+  min-height:1080px;
+  margin:0 auto;
+  background:#050505;
+  overflow:hidden;
+}
+
+.hero{
+  background:url("assets/bg.png") center top / cover no-repeat;
+  padding:24px 42px 0;
+  min-height:350px;
+}
+
+.hero-inner{
+  width:100%;
+  max-width:1840px;
+  margin:0 auto;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:35px;
+  overflow:hidden;
+}
+
+.brand-label{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:6px;
+  letter-spacing:.05em;
+}
+
+.logo-img{
+  width:750px;
+  max-width:100%;
+  display:block;
+  margin-top:-150px;
+  margin-left:-80px;
+  margin-bottom:-170px;
+  filter:drop-shadow(0 0 14px rgba(242,211,107,.22));
+}
+
+.brand-en{
+  margin-top:-200px;
+  padding-left:170px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.42em;
+}
+
+.contact{
+  text-align:right;
+  min-width:300px;
+}
+
+.contact-label{
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:3px;
+}
+
+.tel{
+  display:block;
+  color:#f2d36b;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(24px,3vw,40px);
+  font-weight:900;
+  line-height:1.2;
+}
+
+.fax{
+  font-size:16px;
+  font-weight:700;
+}
+
+.copy{
+  margin-top:0;
+  max-width:650px;
+}
+
+.copy h1{
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:30px;
+  line-height:1.35;
+  margin-bottom:5px;
+  letter-spacing:.04em;
+}
+
+.services{
+  max-width:1750px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border:1px solid rgba(242,211,107,.28);
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(2px);
+}
+
+.service-card{
+  min-height:150px;
+  padding:26px 34px;
+  display:flex;
+  align-items:center;
+  gap:24px;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+
+.service-card:last-child{border-right:none;}
+
+.service-card img{
+  width:120px;
+  min-width:120px;
+  height:120px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(242,211,107,.2));
+}
+
+.service-card h2{
+  color:#f2d36b;
+  font-size:23px;
+  margin-bottom:6px;
+  line-height:1.25;
+  font-weight:900;
+}
+
+.service-card p{
+  font-size:13px;
+  font-weight:700;
+  line-height:1.65;
+}
+
+.info{
+  max-width:1920px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:linear-gradient(180deg,#151515,#080808);
+}
+
+.info-card{
+  min-height:140px;
+  padding:28px 42px;
+  display:flex;
+  gap:22px;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+
+.info-card:last-child{border-right:none;}
+
+.info-card i{
+  color:#f2d36b;
+  font-size:34px;
+  min-width:38px;
+  padding-top:3px;
+}
+
+.info-card h3{
+  color:#f2d36b;
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.info-card p{
+  font-size:13px;
+  line-height:1.75;
+  font-weight:700;
+}
+
+.company-table{
+  border-collapse:collapse;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.65;
+}
+
+.company-table th{
+  width:68px;
+  text-align:left;
+  vertical-align:top;
+  padding:1px 0;
+}
+
+.company-table td{padding:1px 0;}
+
+.sns-card{
+  justify-content:space-between;
+  align-items:center;
+}
+
+.phone-icon{
+  width:42px;
+  height:72px;
+  border:5px solid #f2d36b;
+  border-radius:5px;
+  position:relative;
+  min-width:42px;
+}
+
+.phone-icon::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:6px;
+  transform:translateX(-50%);
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#f2d36b;
+}
+
+footer{
+  text-align:center;
+  color:rgba(255,255,255,.45);
+  font-size:11px;
+  padding:9px;
+}
+
+/* 大画面対策 */
+@media(min-width:1921px){
+  body{
+    background:#000;
+  }
+
+  .site-wrap{
+    border-left:1px solid rgba(255,255,255,.06);
+    border-right:1px solid rgba(255,255,255,.06);
+  }
+}
+
+/* タブレット */
+@media(max-width:1000px){
+  .site-wrap{min-height:auto;}
+
+  .hero{
+    padding:24px 22px 0;
+    min-height:auto;
+    background-position:center top;
+  }
+
+  .header{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .contact{
+    text-align:left;
+    min-width:auto;
+  }
+
+  .brand-en{
+    padding-left:20px;
+    letter-spacing:.45em;
+  }
+
+  .copy{margin-top:42px;}
+
+  .services,
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .service-card,
+  .info-card{
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.15);
+  }
+
+  .service-card:last-child,
+  .info-card:last-child{
+    border-bottom:none;
+  }
+}
+
+/* スマホ */
+@media(max-width:560px){
+  .hero{
+    padding:20px 18px 0;
+    background-size:cover;
+    background-position:center top;
+  }
+
+  .brand-label{
+    font-size:13px;
+    line-height:1.5;
+  }
+
+  .logo-img{
+    width:760px;
+    padding-left:10px;
+    margin:0;
+    transform:translate(-80px, -70px);
+  }
+
+  .brand-en{
+    margin-top:-172px;
+    padding-left:38px;
+    letter-spacing:.28em;
+    font-size:10px;
+  }
+
+  .tel{font-size:25px;}
+  .fax{font-size:15px;}
+
+  .copy{margin-top:20px;}
+
+  .services{margin-top:45px;}
+
+  .service-card{
+    padding:22px 18px;
+    gap:18px;
+  }
+
+  .service-card img{
+    width:72px;
+    min-width:72px;
+    height:72px;
+  }
+
+  .service-card h2{font-size:20px;}
+  .service-card p{font-size:12px;}
+
+  .info-card{padding:24px 18px;}
+
+  .info-card i{
+    font-size:30px;
+    min-width:32px;
+  }
+
+  .info-card h3{font-size:20px;}
+
+  .info-card p,
+  .company-table{
+    font-size:12px;
+  }
+
+  .sns-card{align-items:flex-start;}
+
+  .phone-icon{
+    width:36px;
+    height:64px;
+    min-width:36px;
+    border-width:4px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <main class="page">
+<main class="page">
+  <div class="site-wrap">
 
     <section class="hero">
       <div class="hero-inner">
-
         <header class="header">
           <div class="brand">
             <p class="brand-label">解体・とび・塗装のプロフェッショナル</p>
-
-            <img src="assets/logo.png" alt="勝龍工業" class="logo-img">
-
+            <img src="assets/logo.png" alt="勝龍工業 ロゴ" class="logo-img">
             <p class="brand-en">SHORYU KOUGYOU</p>
           </div>
 
           <div class="contact">
             <p class="contact-label">お問い合わせ・ご相談はこちら</p>
-            <a href="tel:0538389920" class="tel">
+            <a href="tel:+81538389920" class="tel">
               <i class="fa-solid fa-phone"></i>
               0538-38-9920
             </a>
@@ -428,10 +409,7 @@
             <img src="assets/service1.png" alt="解体工事">
             <div>
               <h2>解体工事</h2>
-              <p>
-                建物解体・内装解体など<br>
-                安全第一で丁寧に施工します。
-              </p>
+              <p>建物解体・内装解体など<br>安全第一で丁寧に施工します。</p>
             </div>
           </article>
 
@@ -439,10 +417,7 @@
             <img src="assets/service2.png" alt="足場工事">
             <div>
               <h2>とび・足場工事</h2>
-              <p>
-                足場の組立・解体から<br>
-                高所作業まで対応します。
-              </p>
+              <p>足場の組立・解体から<br>高所作業まで対応します。</p>
             </div>
           </article>
 
@@ -450,14 +425,10 @@
             <img src="assets/service3.png" alt="塗装工事">
             <div>
               <h2>塗装工事</h2>
-              <p>
-                外壁・屋根塗装など<br>
-                美観と耐久性を追求します。
-              </p>
+              <p>外壁・屋根塗装など<br>美観と耐久性を追求します。</p>
             </div>
           </article>
         </section>
-
       </div>
     </section>
 
@@ -466,10 +437,7 @@
         <i class="fa-solid fa-location-dot"></i>
         <div>
           <h3>対応地域</h3>
-          <p>
-            浜松市・湖西市・磐田市<br>
-            掛川市・袋井市・菊川市
-          </p>
+          <p>浜松市・湖西市・磐田市<br>掛川市・袋井市・菊川市</p>
         </div>
       </article>
 
@@ -478,22 +446,11 @@
         <div>
           <h3>会社概要</h3>
           <table class="company-table">
-            <tr>
-              <th>会社名</th>
-              <td>勝龍工業</td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td>静岡県磐田市東新町2丁目12-26</td>
-            </tr>
-            <tr>
-              <th>TEL</th>
-              <td>0538-38-9920</td>
-            </tr>
-            <tr>
-              <th>FAX</th>
-              <td>0538-38-9921</td>
-            </tr>
+            <caption style="display:none;">勝龍工業会社概要</caption>
+            <tr><th>会社名</th><td>勝龍工業</td></tr>
+            <tr><th>所在地</th><td>静岡県磐田市東新町2丁目12-26</td></tr>
+            <tr><th>TEL</th><td>0538-38-9920</td></tr>
+            <tr><th>FAX</th><td>0538-38-9921</td></tr>
           </table>
         </div>
       </article>
@@ -501,10 +458,7 @@
       <article class="info-card sns-card">
         <div>
           <h3>SNSにて施工実績を随時投稿中</h3>
-          <p>
-            最新の施工事例はSNSでご覧いただけます。<br>
-            今後リンクを掲載予定です。
-          </p>
+          <p>最新の施工事例はSNSでご覧いただけます。<br>今後リンクを掲載予定です。</p>
         </div>
         <div class="phone-icon"></div>
       </article>
@@ -514,6 +468,7 @@
       © SHORYU KOUGYOU. All Rights Reserved.
     </footer>
 
-  </main>
+  </div>
+</main>
 </body>
 </html>
